@@ -17,7 +17,7 @@ RUN buildDeps='xz-utils' \
       *) echo "unsupported architecture"; exit 1 ;; \
     esac \
     && set -ex \
-    && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr unzip zip git $buildDeps --no-install-recommends \
+    && apt-get update && apt-get install -y ca-certificates curl wget gnupg dirmngr unzip zip git python $buildDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && for key in \
       94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
@@ -72,3 +72,7 @@ RUN set -ex \
 RUN wget https://services.gradle.org/distributions/gradle-5.4.1-bin.zip
 RUN unzip gradle-5.4.1-bin.zip
 RUN ln -s /gradle-5.4.1/bin/gradle /usr/local/bin/gradle
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python get-pip.py
+RUN pip install awscli
+ENV PATH $PATH:/root/.local/bin
