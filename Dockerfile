@@ -66,5 +66,9 @@ RUN set -ex \
 
  RUN wget https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd64.zip
  RUN unzip terraform_0.12.9_linux_amd64.zip
- RUN ln -s terraform /usr/local/bin/terraform \
+ RUN ln -s /terraform /usr/local/bin/terraform \
   && rm terraform_0.12.9_linux_amd64.zip
+
+RUN wget https://services.gradle.org/distributions/gradle-5.4.1-bin.zip
+RUN unzip gradle-5.4.1-bin.zip
+RUN ln -s /gradle-5.4.1/bin/gradle /usr/local/bin/gradle
