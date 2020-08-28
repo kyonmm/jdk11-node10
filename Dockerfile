@@ -69,9 +69,9 @@ RUN set -ex \
  RUN ln -s /terraform /usr/local/bin/terraform \
   && rm terraform_0.12.9_linux_amd64.zip
 
-RUN wget https://downloads.gradle-dn.com/distributions/gradle-6.3-bin.zip
-RUN unzip gradle-6.3-bin.zip
-RUN ln -s /gradle-6.3/bin/gradle /usr/local/bin/gradle
+RUN wget https://downloads.gradle-dn.com/distributions/gradle-6.6.1-bin.zip
+RUN unzip gradle-6.6.1-bin.zip
+RUN ln -s /gradle-6.6.1/bin/gradle /usr/local/bin/gradle
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python get-pip.py
 RUN pip install awscli
